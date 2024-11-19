@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ user.title }}</title>
+    <style>
+        h1 {
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+   body {
+            background-image: url('/photo/important/user.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: black;
+            text-shadow: 0 0 5px white, 0 0 10px white;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ user.username }}</h1>
+    <br>
+    <br>
+    <h2>Фамилия и имя пользователя: {{ user.lastname }} {{ user.firstname }}</h2>
+    <br>
+    <h2>Отзывы пользователя:</h2>
+<ul>
+    {% for rating in ratings %}
+        <h3><li>Оценка игры {{ rating.game.title }} - {{ rating.score }}</li></h3>
+    {% endfor %}
+</ul>
+
+<h2>Комментарии пользователя:</h2>
+<ul>
+    {% for feedback in feedbacks %}
+        <h3><li>Отзыв об игре {{ feedback.game.title }} - {{ feedback.feedback_user }}</li></h3>
+    {% endfor %}
+</ul>
+</body>
+</html>
